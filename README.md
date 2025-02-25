@@ -119,12 +119,4 @@ By following these steps, you can focus more on creating innovative omnichain so
   Join our <a href="https://layerzero.network/community" style="color: #a77dff">community</a>! | Follow us on <a href="https://x.com/LayerZero_Labs" style="color: #a77dff">X (formerly Twitter)</a>
 </p>
 
-Deployed contract: OneRing, network: sonic, address: 0x4BBA0693Aa204c80229469D0c95034BAeeD57CDA
-Deployed contract: MyOFTAdapter, network: fantom, address: 0x34858B68FD411Bb9c339cED41FC6334E67C7e02D
-
-- send from fantom to sonic
-  npx hardhat lz:oft:send --amount 1 --to 0xd6902e0CAB24Ad92057D8f417da0Ec01C37f21aB --to-eid 30332 --network fantom
-
-- send from sonic to fantom
-  npx hardhat lz:oft:send --amount 1 --to 0xd6902e0CAB24Ad92057D8f417da0Ec01C37f21aB --to-eid 30112 --network sonic
 # LayerZero
