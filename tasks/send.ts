@@ -35,10 +35,7 @@ task('lz:oft:send', 'Sends tokens from either OFT or OFTAdapter')
         const eidB = taskArgs.toEid
 
         // Get the contract factories
-        console.log('before')
-        console.log(deployments.get)
-        const oftDeployment = await deployments.get('OneRing')
-        console.log('after')
+        const oftDeployment = await deployments.get('MyOFTAdapter')
 
         const [signer] = await ethers.getSigners()
 

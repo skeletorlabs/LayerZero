@@ -16,6 +16,7 @@ import { EndpointId } from '@layerzerolabs/lz-definitions'
 import './type-extensions'
 
 import './tasks/send'
+import '@nomiclabs/hardhat-etherscan'
 
 // Set your preferred authentication method
 //
@@ -68,6 +69,12 @@ const config: HardhatUserConfig = {
             eid: EndpointId.SONIC_V2_MAINNET,
             url: process.env.RPC_URL_SONIC,
             accounts,
+            verify: {
+                etherscan: {
+                    apiKey: process.env.SONIC_SCAN_API_KEY,
+                    apiUrl: process.env.SONIC_SCAN_API_URL,
+                },
+            },
         },
         hardhat: {
             // Need this for testing because TestHelperOz5.sol is exceeding the compiled contract size limit
@@ -78,6 +85,28 @@ const config: HardhatUserConfig = {
         deployer: {
             default: 0, // wallet address of index[0], of the mnemonic in .env
         },
+    },
+}
+
+require('@nomiclabs/hardhat-etherscan')
+
+module.exports = {
+    // ... other config
+    etherscan: {
+        apiKey: process.env.ETHERSCAN_API_KEY, // Get your API key from Etherscan
+    },
+    networks: {
+        mainnet: {
+            // Example for mainnet
+            url: process.env.MAINNET_URL,
+            accounts: [process.env.PRIVATE_KEY],
+        },
+        goerli: {
+            // Example for Goerli testnet
+            url: process.env.GOERLI_URL,
+            accounts: [process.env.PRIVATE_KEY],
+        },
+        // ... other networks
     },
 }
 
