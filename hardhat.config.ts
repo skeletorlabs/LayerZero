@@ -71,8 +71,19 @@ const config: HardhatUserConfig = {
             accounts,
             verify: {
                 etherscan: {
-                    apiKey: process.env.SONIC_SCAN_API_KEY,
-                    apiUrl: process.env.SONIC_SCAN_API_URL,
+                    apiKey: process.env.ETHERSCAN_SCAN_API_KEY,
+                    apiUrl: process.env.ETHERSCAN_SCAN_API_KEY,
+                },
+            },
+        },
+        avalanche: {
+            eid: EndpointId.AVALANCHE_V2_MAINNET,
+            url: process.env.RPC_URL_AVALANCHE,
+            accounts,
+            verify: {
+                etherscan: {
+                    apiKey: process.env.ETHERSCAN_SCAN_API_KEY,
+                    apiUrl: process.env.ETHERSCAN_SCAN_API_KEY,
                 },
             },
         },
@@ -96,14 +107,14 @@ module.exports = {
         apiKey: process.env.ETHERSCAN_API_KEY, // Get your API key from Etherscan
     },
     networks: {
-        mainnet: {
-            // Example for mainnet
-            url: process.env.MAINNET_URL,
+        sonic: {
+            // Example for Goerli testnet
+            url: process.env.SONIC_SCAN_API_URL,
             accounts: [process.env.PRIVATE_KEY],
         },
-        goerli: {
+        avalanche: {
             // Example for Goerli testnet
-            url: process.env.GOERLI_URL,
+            url: process.env.AVALANCHE_SCAN_API_URL,
             accounts: [process.env.PRIVATE_KEY],
         },
         // ... other networks

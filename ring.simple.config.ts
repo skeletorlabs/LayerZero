@@ -13,6 +13,11 @@ const sonicContract: OmniPointHardhat = {
     contractName: 'OneRing',
 }
 
+const avalancheContract: OmniPointHardhat = {
+    eid: EndpointId.AVALANCHE_V2_MAINNET,
+    contractName: 'OneRing',
+}
+
 const EVM_ENFORCED_OPTIONS: OAppEnforcedOption[] = [
     {
         msgType: 1,
@@ -40,14 +45,28 @@ export default async function () {
         [
             fantomContract, // srcContract
             sonicContract, // dstContract
-            [['Horizen', 'Nethermind'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
+            [['P2P', 'Deutsche Telekom'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
             [5, 20], // [srcToDstConfirmations, dstToSrcConfirmations]
             [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS], // [enforcedOptionsSrcToDst, enforcedOptionsDstToSrc]
+        ],
+        [
+            fantomContract,
+            avalancheContract,
+            [['P2P', 'Deutsche Telekom'], []],
+            [5, 12],
+            [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS],
+        ],
+        [
+            sonicContract,
+            avalancheContract,
+            [['P2P', 'Deutsche Telekom'], []],
+            [20, 12],
+            [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS],
         ],
     ])
 
     return {
-        contracts: [{ contract: fantomContract }, { contract: sonicContract }],
+        contracts: [{ contract: fantomContract }, { contract: sonicContract }, { contract: avalancheContract }],
         connections,
     }
 }
