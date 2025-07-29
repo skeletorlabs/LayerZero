@@ -99,26 +99,4 @@ const config: HardhatUserConfig = {
     },
 }
 
-require('@nomiclabs/hardhat-etherscan')
-
-module.exports = {
-    // ... other config
-    etherscan: {
-        apiKey: process.env.ETHERSCAN_API_KEY, // Get your API key from Etherscan
-    },
-    networks: {
-        sonic: {
-            // Example for Goerli testnet
-            url: process.env.SONIC_SCAN_API_URL,
-            accounts: [process.env.PRIVATE_KEY],
-        },
-        avalanche: {
-            // Example for Goerli testnet
-            url: process.env.AVALANCHE_SCAN_API_URL,
-            accounts: [process.env.PRIVATE_KEY],
-        },
-        // ... other networks
-    },
-}
-
 export default config

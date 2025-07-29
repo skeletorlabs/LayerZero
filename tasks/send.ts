@@ -35,7 +35,8 @@ task('lz:oft:send', 'Sends tokens from either OFT or OFTAdapter')
         const eidB = taskArgs.toEid
 
         // Get the contract factories
-        const oftDeployment = await deployments.get('MyOFTAdapter')
+        // const oftDeployment = await deployments.get('MyOFTAdapter') // from sonic to avalanche
+        const oftDeployment = await deployments.get('OneRing') // from avalanche to sonic
 
         const [signer] = await ethers.getSigners()
 
